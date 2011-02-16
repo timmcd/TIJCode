@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<project name="General Build" basedir=".">
+
+  <path id="files-classpath">
+    <fileset dir="/Users/Timothy/java/lib">
+      <include name="*.jar"/>
+      <include name="*.class"/>
+    </fileset>
+  </path>
+
+  <target name="build" description="Builds 1st argument" depends="clean">
+    <javac srcdir="${dir}/src" destdir="${dir}/build">
+      <classpath>
+	<path refid="files-classpath" />
+      </classpath>
+    </javac>
+  </target>
+
+  <target name="clean" description="Cleans up 1st argument">
+    <delete includeemptydirs="true">
+      <fileset dir="${dir}/build" includes="**/*" />
+    </delete>
+  </target>
+</project>
